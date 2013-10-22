@@ -14,7 +14,7 @@ class java::params {
 
   case $::osfamily {
     default: { fail("unsupported platform ${::osfamily}") }
-    'RedHat': {
+    /RedHat|Linux/: {
       case $::operatingsystem {
         default: { fail("unsupported os ${::operatingsystem}") }
         'RedHat', 'CentOS', 'OracleLinux', 'Scientific': {
