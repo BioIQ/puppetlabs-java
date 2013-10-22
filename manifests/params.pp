@@ -51,48 +51,56 @@ class java::params {
         'lenny', 'squeeze', 'lucid', 'natty': {
           $java  = {
             'jdk' => {
-              'package'          => 'openjdk-6-jdk',
-              'alternative'      => 'java-6-openjdk',
-              'alternative_path' => '/usr/lib/jvm/java-6-openjdk/jre/bin/java',
+              'package'               => 'openjdk-6-jdk',
+              'alternative'           => 'java-6-openjdk',
+              'alternative_base_path' => '/usr/lib/jvm/java-6-openjdk',
+              'alternative_path'      => '/usr/lib/jvm/java-6-openjdk/jre/bin/java',
             },
             'jre' => {
-              'package'          => 'openjdk-6-jre-headless',
-              'alternative'      => 'java-6-openjdk',
-              'alternative_path' => '/usr/lib/jvm/java-6-openjdk/jre/bin/java',
+              'package'               => 'openjdk-6-jre-headless',
+              'alternative'           => 'java-6-openjdk',
+              'alternative_base_path' => '/usr/lib/jvm/java-6-openjdk',
+              'alternative_path'      => '/usr/lib/jvm/java-6-openjdk/jre/bin/java',
             },
             'sun-jre' => {
-              'package'          => 'sun-java6-jre',
-              'alternative'      => 'java-6-sun',
-              'alternative_path' => '/usr/lib/jvm/java-6-sun/jre/bin/java',
+              'package'               => 'sun-java6-jre',
+              'alternative'           => 'java-6-sun',
+              'alternative_base_path' => '/usr/lib/jvm/java-6-sun',
+              'alternative_path'      => '/usr/lib/jvm/java-6-sun/jre/bin/java',
             },
             'sun-jdk' => {
-              'package'          => 'sun-java6-jdk',
-              'alternative'      => 'java-6-sun',
-              'alternative_path' => '/usr/lib/jvm/java-6-sun/jre/bin/java',
+              'package'               => 'sun-java6-jdk',
+              'alternative'           => 'java-6-sun',
+              'alternative_base_path' => '/usr/lib/jvm/java-6-sun',
+              'alternative_path'      => '/usr/lib/jvm/java-6-sun/jre/bin/java',
             },
           }
         }
         'wheezy', 'precise','quantal','raring': {
           $java =  {
             'jdk' => {
-              'package'          => 'openjdk-7-jdk',
-              'alternative'      => "java-1.7.0-openjdk-${::architecture}",
-              'alternative_path' => "/usr/lib/jvm/java-1.7.0-openjdk-${::architecture}/bin/java",
+              'package'               => 'openjdk-7-jdk',
+              'alternative'           => "java-1.7.0-openjdk-${::architecture}",
+              'alternative_base_path' => "/usr/lib/jvm/java-1.7.0-openjdk-${::architecture}",
+              'alternative_path'      => "/usr/lib/jvm/java-1.7.0-openjdk-${::architecture}/bin/java",
             },
             'jre' => {
-              'package'          => 'openjdk-7-jre-headless',
-              'alternative'      => "java-1.7.0-openjdk-${::architecture}",
-              'alternative_path' => "/usr/lib/jvm/java-1.7.0-openjdk-${::architecture}/bin/java",
+              'package'               => 'openjdk-7-jre-headless',
+              'alternative'           => "java-1.7.0-openjdk-${::architecture}",
+              'alternative_base_path' => "/usr/lib/jvm/java-1.7.0-openjdk-${::architecture}",
+              'alternative_path'      => "/usr/lib/jvm/java-1.7.0-openjdk-${::architecture}/bin/java",
             },
             'oracle-jre' => {
-              'package'          => 'oracle-j2re1.7',
-              'alternative'      => 'j2re1.7-oracle',
-              'alternative_path' => '/usr/lib/jvm/j2re1.7-oracle/bin/java',
+              'package'               => 'oracle-j2re1.7',
+              'alternative'           => 'j2re1.7-oracle',
+              'alternative_base_path' => "/usr/lib/jvm/j2re1.7-oracle",
+              'alternative_path'      => '/usr/lib/jvm/j2re1.7-oracle/bin/java',
             },
             'oracle-jdk' => {
-              'package'          => 'oracle-j2sdk1.7',
-              'alternative'      => 'j2sdk1.7-oracle',
-              'alternative_path' => '/usr/lib/jvm/j2sdk1.7-oracle/jre/bin/java',
+              'package'               => 'oracle-j2sdk1.7',
+              'alternative'           => 'j2sdk1.7-oracle',
+              'alternative_base_path' => "/usr/lib/jvm/j2sdk1.7-oracle",
+              'alternative_path'      => '/usr/lib/jvm/j2sdk1.7-oracle/jre/bin/java',
             },
           }
         }

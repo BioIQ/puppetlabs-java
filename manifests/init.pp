@@ -49,9 +49,10 @@ class java(
   validate_re($version, 'present|installed|latest|^[._0-9a-zA-Z:-]+$')
 
   if has_key($java::params::java, $distribution) {
-    $default_package_name     = $java::params::java[$distribution]['package']
-    $default_alternative      = $java::params::java[$distribution]['alternative']
-    $default_alternative_path = $java::params::java[$distribution]['alternative_path']
+    $default_package_name          = $java::params::java[$distribution]['package']
+    $default_alternative           = $java::params::java[$distribution]['alternative']
+    $default_alternative_base_path = $java::params::java[$distribution]['alternative_base_path']
+    $default_alternative_path      = $java::params::java[$distribution]['alternative_path']
   } else {
     fail("Java distribution ${distribution} is not supported.")
   }
@@ -87,6 +88,13 @@ class java(
     ensure => $version,
     name   => $use_java_package_name,
   }
+
+  # export java profile variables
+  file { "/etc/profile.d/java.sh":
+    ensure  => file,
+    content => template('java/java_profile.sh')
+  }
+
   ->
   class { 'java::config': }
   -> anchor { 'java::end': }
