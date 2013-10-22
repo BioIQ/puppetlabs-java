@@ -51,12 +51,13 @@ class java(
   if has_key($java::params::java, $distribution) {
     $default_package_name          = $java::params::java[$distribution]['package']
     $default_alternative           = $java::params::java[$distribution]['alternative']
-    $default_alternative_base_path = $java::params::java[$distribution]['alternative_base_path']
     $default_alternative_path      = $java::params::java[$distribution]['alternative_path']
   } else {
     fail("Java distribution ${distribution} is not supported.")
   }
 
+  $java_home = $java::params::java['home']
+  
   $use_java_package_name = $package ? {
     default => $package,
     undef   => $default_package_name,
