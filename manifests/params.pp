@@ -21,28 +21,38 @@ class java::params {
           if (versioncmp($::operatingsystemrelease, '5.0') < 0) {
             $jdk_package = 'java-1.6.0-sun-devel'
             $jre_package = 'java-1.6.0-sun'
+            $jdk_home    = "/usr/lib/jvm/${jre_package}"
+            $jre_home    = "/usr/lib/jvm/${jre_package}/jre"
           }
           elsif (versioncmp($::operatingsystemrelease, '6.3') < 0) {
             $jdk_package = 'java-1.6.0-openjdk-devel'
             $jre_package = 'java-1.6.0-openjdk'
+            $jdk_home    = "/usr/lib/jvm/${jre_package}"
+            $jre_home    = "/usr/lib/jvm/${jre_package}/jre"
           }
           else {
             $jdk_package = 'java-1.7.0-openjdk-devel'
             $jre_package = 'java-1.7.0-openjdk'
+            $jdk_home    = "/usr/lib/jvm/java-openjdk"
+            $jre_home    = "/usr/lib/jvm/java-openjdk/jre"
           }
         }
         'Fedora': {
           $jdk_package = 'java-1.7.0-openjdk-devel'
           $jre_package = 'java-1.7.0-openjdk'
+          $jdk_home    = "/usr/lib/jvm/${jre_package}"
+          $jre_home    = "/usr/lib/jvm/${jre_package}/jre"
         }
         'Amazon': {
           $jdk_package = 'java-1.7.0-openjdk-devel'
           $jre_package = 'java-1.7.0-openjdk'
+          $jdk_home    = "/usr/lib/jvm/${jre_package}"
+          $jre_home    = "/usr/lib/jvm/${jre_package}/jre"
         }
       }
       $java = {
-        'jdk' => { 'package' => $jdk_package, 'home' => "/usr/lib/jvm/${jre_package}"},
-        'jre' => { 'package' => $jre_package, 'home' => "/usr/lib/jvm/${jre_package}/jre"},
+        'jdk' => { 'package' => $jdk_package, 'home' => $jdk_home},
+        'jre' => { 'package' => $jre_package, 'home' => $jre_home},
       }
     }
     'Debian': {
